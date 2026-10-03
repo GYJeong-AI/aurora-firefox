@@ -1,0 +1,34 @@
+/* Paint the native icon surface. Never change button geometry, order,
+   visibility, command bindings, focus outline or drag behavior. */
+@media (-moz-platform: linux) and (not (forced-colors: active)) {
+  .titlebar-min { --aurora-dot: var(--aurora-yellow); }
+  .titlebar-max, .titlebar-restore { --aurora-dot: var(--aurora-green); }
+  .titlebar-close { --aurora-dot: var(--aurora-red); }
+  .titlebar-button:is(.titlebar-min, .titlebar-max, .titlebar-restore, .titlebar-close) > .toolbarbutton-icon {
+    background-color: transparent !important;
+    background-image: radial-gradient(circle 6px at center, var(--aurora-dot) 95%, transparent 100%) !important;
+    background-size: 100% 100% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    transition: none !important;
+  }
+  :root:-moz-window-inactive .titlebar-button > .toolbarbutton-icon {
+    --aurora-dot: #9c9ca3;
+  }
+  .titlebar-button:hover > .toolbarbutton-icon {
+    filter: brightness(0.9);
+  }
+  .titlebar-button:active > .toolbarbutton-icon {
+    filter: brightness(0.78);
+  }
+  /* Original vector glyphs on hover retain the minimize/maximize/restore/close
+     distinction, including Linux maximize rather than macOS fullscreen. */
+  .titlebar-min:hover > .toolbarbutton-icon { --aurora-glyph: url("../icons/minimize.svg"); }
+  .titlebar-max:hover > .toolbarbutton-icon { --aurora-glyph: url("../icons/maximize.svg"); }
+  .titlebar-restore:hover > .toolbarbutton-icon { --aurora-glyph: url("../icons/restore.svg"); }
+  .titlebar-close:hover > .toolbarbutton-icon { --aurora-glyph: url("../icons/close.svg"); }
+  .titlebar-button:is(.titlebar-min, .titlebar-max, .titlebar-restore, .titlebar-close):hover > .toolbarbutton-icon {
+    background-image: var(--aurora-glyph), radial-gradient(circle 6px at center, var(--aurora-dot) 95%, transparent 100%) !important;
+    background-size: 10px 10px, 100% 100% !important;
+  }
+}

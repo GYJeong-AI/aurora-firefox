@@ -1,0 +1,18 @@
+/* Keep Firefox's native tab heights, drag regions, borders and toolbar order. */
+@media (-moz-platform: linux) and (not (forced-colors: active)) {
+  :root {
+    --toolbox-background-color: var(--aurora-frame) !important;
+    --toolbox-background-color-inactive: var(--aurora-frame) !important;
+    --toolbox-text-color: var(--aurora-text) !important;
+    --toolbox-text-color-inactive: var(--aurora-text) !important;
+    --toolbar-bgcolor: var(--aurora-toolbar) !important;
+    --toolbar-color: var(--aurora-text) !important;
+    --chrome-content-separator-color: var(--aurora-line) !important;
+  }
+  #navigator-toolbox { background-color: var(--aurora-frame) !important; }
+  #TabsToolbar, #toolbar-menubar { color: var(--aurora-text) !important; }
+  #nav-bar, #PersonalToolbar {
+    background-color: var(--aurora-toolbar) !important;
+    color: var(--aurora-text) !important;
+  }
+}

@@ -1,0 +1,30 @@
+/* OPTIONAL true desktop glass substrate. Requires an external compositor blur.
+   No window/element opacity reduction. Only TabsToolbar/nav-bar get alpha.
+   Web content, sidebars, bookmark bar, and native popup surfaces stay opaque. */
+@media (-moz-platform: linux) and (not (forced-colors: active)) {
+  :root[customtitlebar]:not([inFullscreen], [customizing]) {
+    background-color: transparent !important;
+  }
+  :root[customtitlebar]:not([inFullscreen], [customizing]) body,
+  :root[customtitlebar]:not([inFullscreen], [customizing]) #navigator-toolbox {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+  :root[customtitlebar]:not([inFullscreen], [customizing]) #TabsToolbar {
+    background-color: rgba(var(--aurora-frame-rgb), 0.64) !important;
+    opacity: 1 !important;
+    background-image: none !important;
+  }
+  :root[customtitlebar]:not([inFullscreen], [customizing]) #nav-bar {
+    background-color: rgba(var(--aurora-toolbar-rgb), 0.76) !important;
+    opacity: 1 !important;
+    background-image: none !important;
+  }
+  /* Body transparency must not reach website canvases (including transparent
+     HTML pages), the sidebar, bottom chrome, or auxiliary chrome windows. */
+  :root[customtitlebar]:not([inFullscreen], [customizing]) #browser,
+  :root[customtitlebar]:not([inFullscreen], [customizing]) #tabbrowser-tabbox,
+  :root[customtitlebar]:not([inFullscreen], [customizing]) #tabbrowser-tabpanels {
+    background-color: light-dark(#ffffff, #1c1b22) !important;
+  }
+}

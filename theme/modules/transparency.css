@@ -1,0 +1,18 @@
+/* OPTIONAL: top chrome alpha only, not actual background blur.
+   Requires compositor/application support; pages remain opaque.
+   No security, graphics, GTK or GNOME preferences are changed. */
+@media (-moz-platform: linux) and (not (forced-colors: active)) {
+  :root:not([inFullscreen]) #navigator-toolbox {
+    background-color: transparent !important;
+  }
+  :root:not([inFullscreen]) #TabsToolbar,
+  :root:not([inFullscreen]) #toolbar-menubar {
+    background-color: rgba(var(--aurora-frame-rgb), 0.9) !important;
+  }
+  :root:not([inFullscreen]) #nav-bar,
+  :root:not([inFullscreen]) #PersonalToolbar {
+    background-color: rgba(var(--aurora-toolbar-rgb), 0.92) !important;
+  }
+  /* Firefox may paint an opaque backing surface. This module deliberately
+     leaves root/body alone and therefore does not promise desktop transparency. */
+}

@@ -1,0 +1,5 @@
+/* Aurora Firefox 0.2.2-beta.1 — original CSS, MIT license. */
+@import url("modules/colors.css");
+@import url("modules/top.css");
+@import url("modules/buttons.css");
+/* Optional, disabled by default: @import url("modules/transparency.css"); */

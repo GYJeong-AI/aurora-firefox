@@ -1,0 +1,24 @@
+/* Only browser chrome colors; no page, sidebar, popup or layout overrides. */
+@media (-moz-platform: linux) and (not (forced-colors: active)) {
+  :root {
+    --aurora-frame: #e9e9ed;
+    --aurora-toolbar: #f6f6f8;
+    --aurora-text: #242429;
+    --aurora-line: #d8d8df;
+    --aurora-frame-rgb: 233, 233, 237;
+    --aurora-toolbar-rgb: 246, 246, 248;
+    --aurora-red: #ff6058;
+    --aurora-yellow: #febc2e;
+    --aurora-green: #28c840;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --aurora-frame: #29292e;
+      --aurora-toolbar: #323238;
+      --aurora-text: #f1f1f4;
+      --aurora-line: #45454c;
+      --aurora-frame-rgb: 41, 41, 46;
+      --aurora-toolbar-rgb: 50, 50, 56;
+    }
+  }
+}
