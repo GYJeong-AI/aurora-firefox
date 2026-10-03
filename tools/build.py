@@ -11,6 +11,7 @@ PUBLIC_FILES=(
  'theme/icons/minimize.svg','theme/icons/maximize.svg','theme/icons/restore.svg','theme/icons/close.svg',
  'tools/install.py','tools/gnome_glass.py','tools/build.py','tools/safety.py','tools/setup.py',
  'tests/test_install.py','tests/test_glass.py','tests/test_audit.py','tests/test_release.py','tests/test_hardening.py','tests/test_setup.py',
+ 'docs/images/language-en-active.svg','docs/images/language-en-idle.svg','docs/images/language-ko-active.svg','docs/images/language-ko-idle.svg',
  'docs/images/preview-light.png','docs/BLUR.md','docs/VALIDATION.md','docs/RELEASE-AUDIT.md','docs/RECOVERY.md','docs/RELEASE-READINESS.md','docs/INSTALLATION.md',
 )
 def public_inputs(root):

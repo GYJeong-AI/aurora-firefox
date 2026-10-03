@@ -1,4 +1,4 @@
-[English](README.md) | [한국어](README.ko.md)
+[![English — current language](docs/images/language-en-active.svg)](README.md) [![한국어](docs/images/language-ko-idle.svg)](README.ko.md)
 
 # Aurora Firefox
 

@@ -5,6 +5,10 @@
 !/docs/images/
 /docs/images/*
 !/docs/images/preview-light.png
+!/docs/images/language-en-active.svg
+!/docs/images/language-en-idle.svg
+!/docs/images/language-ko-active.svg
+!/docs/images/language-ko-idle.svg
 !/tests/
 /tests/*
 !/theme/
