@@ -23,8 +23,8 @@ Linux에서 쓰는 Firefox용 CSS 테마입니다. macOS 스타일의 창 버튼
 **Linux, Bash, Python 3.10 이상과 표준 라이브러리**가 필요합니다. root 권한이나 WhiteSur는 필요하지 않으며 의존성을 자동 설치하지 않습니다.
 
 ```bash
-git clone https://github.com/GYJeong-AI/aurora-firefox.git
-cd aurora-firefox
+git clone https://github.com/GYJeong-AI/aurora-firefox-theme.git
+cd aurora-firefox-theme
 bash install.sh
 ```
 

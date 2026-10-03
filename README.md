@@ -23,8 +23,8 @@ A macOS-inspired CSS theme for Firefox on Linux, with light and dark styles.
 Requires **Linux, Bash and Python 3.10+** with its standard library. No root access or WhiteSur installation is required. Dependencies are not installed automatically. The current guided installer uses Korean prompts; explicit commands below work without the interactive menu.
 
 ```bash
-git clone https://github.com/GYJeong-AI/aurora-firefox.git
-cd aurora-firefox
+git clone https://github.com/GYJeong-AI/aurora-firefox-theme.git
+cd aurora-firefox-theme
 bash install.sh
 ```
 
