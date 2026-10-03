@@ -1,8 +1,8 @@
-[English](README.md) | [한국어](README.ko.md)
+[![English](docs/images/language-en-idle.svg)](README.md) [![한국어 — 현재 언어](docs/images/language-ko-active.svg)](README.ko.md)
 
-# Aurora Firefox
+# Aurora Theme for Firefox
 
-Linux Firefox에 차분한 상단 색상과 세 개의 컬러 창 버튼을 더하는 작은 macOS 느낌의 `userChrome.css` 테마입니다. 선택형 실험적 유리 효과를 제공합니다.
+Linux에서 쓰는 Firefox용 CSS 테마입니다. macOS 스타일의 창 버튼과 밝은·어두운 테마를 제공하며, GNOME용 블러는 실험 기능으로 켤 수 있습니다.
 
 **0.2.2-beta.1 · 베타.** Firefox 157 Snap / GNOME 46 / Wayland에서 확인했습니다. Firefox 내부 UI CSS는 버전마다 달라질 수 있어 모든 업데이트 호환성을 보장하지 않습니다. Mozilla 또는 Apple과 관계없는 독립 비공식 프로젝트입니다.
 
