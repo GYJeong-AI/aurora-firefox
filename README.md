@@ -1,8 +1,8 @@
 [![English — current language](docs/images/language-en-active.svg)](README.md) [![한국어](docs/images/language-ko-idle.svg)](README.ko.md)
 
-# Aurora Firefox
+# Aurora Theme for Firefox
 
-A small macOS-inspired `userChrome.css` theme for Firefox on Linux: a quiet toolbar palette and three colored window buttons, with optional experimental glass.
+A macOS-inspired CSS theme for Firefox on Linux, with light and dark styles.
 
 **0.2.2-beta.1 · Beta.** Tested on Firefox 157 Snap with GNOME 46 / Wayland. Firefox internal UI CSS can change between releases; compatibility after every update is not guaranteed. This is an independent, unofficial project, unaffiliated with Mozilla or Apple.
 
