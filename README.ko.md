@@ -6,9 +6,15 @@ Linux에서 쓰는 Firefox용 CSS 테마입니다. macOS 스타일의 창 버튼
 
 **0.2.2-beta.1 · 베타.** Firefox 157 Snap / GNOME 46 / Wayland에서 확인했습니다. Firefox 내부 UI CSS는 버전마다 달라질 수 있어 모든 업데이트 호환성을 보장하지 않습니다. Mozilla 또는 Apple과 관계없는 독립 비공식 프로젝트입니다.
 
-![빈 Firefox 테스트 프로필의 라이트 테마](docs/images/preview-light.png)
+**라이트**
 
-*기본 불투명 모드입니다. 주소줄 줄무늬는 Firefox 자동화 표시이며, 이 화면은 데스크톱 블러의 증거가 아닙니다.*
+![라이트 상단 — 사용자 제공 스크린샷](docs/images/preview-light.png)
+
+**다크**
+
+![다크 상단 — 사용자 제공 스크린샷](docs/images/preview-dark.png)
+
+*사용자가 제공한 라이트·다크 화면입니다. 탭바와 주소줄만 잘랐습니다.*
 
 ## 기능
 

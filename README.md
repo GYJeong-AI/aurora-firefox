@@ -6,9 +6,15 @@ A macOS-inspired CSS theme for Firefox on Linux, with light and dark styles.
 
 **0.2.2-beta.1 · Beta.** Tested on Firefox 157 Snap with GNOME 46 / Wayland. Firefox internal UI CSS can change between releases; compatibility after every update is not guaranteed. This is an independent, unofficial project, unaffiliated with Mozilla or Apple.
 
-![Light theme on a blank Firefox QA profile](docs/images/preview-light.png)
+**Light**
 
-*Basic opaque mode, captured in a blank test profile. The striped address bar is Firefox's automation indicator. This image does not demonstrate desktop blur.*
+![Light toolbar — user-provided screenshot](docs/images/preview-light.png)
+
+**Dark**
+
+![Dark toolbar — user-provided screenshot](docs/images/preview-dark.png)
+
+*User-provided screenshots, cropped to the tab and address bars.*
 
 ## Features
 
