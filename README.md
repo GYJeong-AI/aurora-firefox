@@ -84,7 +84,7 @@ Renderer alpha and UI behavior were checked; actual spatial desktop blur, compos
 | Installer | Temporary Linux profiles, directory/relative/absolute links, updates, removal, conflicts, interruption and rollback |
 | GNOME helper | GNOME 46 / Blur my Shell 72 / Wayland; settings guards and mocked failure tests |
 
-ESR, other Firefox releases, deb/Flatpak UI, X11, other desktops and extension versions are unverified. Separate OS titlebars may hide the internally styled buttons. Actual accessibility, mixed-monitor scaling and full compositor performance are not yet validated. [Validation and update checklist](docs/VALIDATION.md) · [Release limitations](docs/RELEASE-READINESS.md).
+ESR, other Firefox releases, deb/Flatpak UI, X11, other desktops and extension versions are unverified. Separate OS titlebars may hide the internally styled buttons. Actual accessibility, mixed-monitor scaling and full compositor performance are not yet validated. [Validation and update checklist](docs/VALIDATION.md) · [Release limitations](docs/VALIDATION.md#release-status).
 
 ## Development and contributing
 
@@ -97,7 +97,7 @@ python3 tools/build.py
 
 The suite contains 80 tests. The builder exports an uncompressed public source tree or a deterministic ZIP from an explicit allowlist. It refuses to overwrite an edited source export. Update `PUBLIC_FILES` and `.gitignore` together when adding a public file.
 
-Issues and pull requests are welcome. Include Firefox/package version, desktop/compositor, theme mode, relevant steps and a redacted error. Do not attach profiles, backups, browsing data or private logs. Keep changes small and run the tests. [Installation details](docs/INSTALLATION.md) · [Engineering checks](docs/RELEASE-AUDIT.md).
+Issues and pull requests are welcome. Include Firefox/package version, desktop/compositor, theme mode, relevant steps and a redacted error. Do not attach profiles, backups, browsing data or private logs. Keep changes small and run the tests. [Installation details](docs/INSTALLATION.md) · [Engineering checks](docs/VALIDATION.md#installer-safeguards).
 
 ## License
 

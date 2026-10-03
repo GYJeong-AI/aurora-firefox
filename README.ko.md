@@ -84,7 +84,7 @@ bash install.sh update --profile "/absolute/path/to/profile" --mode glass --appl
 | 설치기 | 임시 Linux 프로필, 폴더/절대·상대 링크, 업데이트·제거·충돌·중단·rollback |
 | GNOME 도구 | GNOME 46 / Blur my Shell 72 / Wayland, 설정 보호와 모의 실패 검사 |
 
-ESR·다른 Firefox 버전·deb/Flatpak UI·X11·다른 데스크톱·확장 버전은 미검증입니다. 별도 OS 제목줄은 내부 버튼 장식을 가릴 수 있습니다. 실제 접근성·혼합 모니터 배율·전체 합성 성능도 미검증입니다. [검증·업데이트 체크리스트](docs/VALIDATION.md) · [배포 한계](docs/RELEASE-READINESS.md).
+ESR·다른 Firefox 버전·deb/Flatpak UI·X11·다른 데스크톱·확장 버전은 미검증입니다. 별도 OS 제목줄은 내부 버튼 장식을 가릴 수 있습니다. 실제 접근성·혼합 모니터 배율·전체 합성 성능도 미검증입니다. [검증·업데이트 체크리스트](docs/VALIDATION.md) · [배포 한계](docs/VALIDATION.md#release-status).
 
 ## 개발·기여
 
@@ -97,7 +97,7 @@ python3 tools/build.py
 
 테스트는 80개입니다. 빌더는 명시적 공개 목록으로 비압축 소스나 재현 가능한 ZIP을 만듭니다. 편집된 소스 export는 덮어쓰지 않습니다. 공개 파일 추가 시 `PUBLIC_FILES`와 `.gitignore`를 함께 갱신하세요.
 
-이슈·PR을 환영합니다. Firefox/배포형태·데스크톱/compositor·테마 모드·재현 순서·개인정보를 지운 오류를 포함하세요. 프로필·백업·방문 데이터·개인 로그는 첨부하지 마세요. 작은 변경과 테스트를 권장합니다. [설치 상세](docs/INSTALLATION.md) · [기술 검사](docs/RELEASE-AUDIT.md). 상세 문서는 현재 영어입니다.
+이슈·PR을 환영합니다. Firefox/배포형태·데스크톱/compositor·테마 모드·재현 순서·개인정보를 지운 오류를 포함하세요. 프로필·백업·방문 데이터·개인 로그는 첨부하지 마세요. 작은 변경과 테스트를 권장합니다. [설치 상세](docs/INSTALLATION.md) · [기술 검사](docs/VALIDATION.md#installer-safeguards). 상세 문서는 현재 영어입니다.
 
 ## 라이선스
 

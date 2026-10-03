@@ -48,9 +48,7 @@
 !/tests/test_setup.py
 !/docs/BLUR.md
 !/docs/VALIDATION.md
-!/docs/RELEASE-AUDIT.md
 !/docs/RECOVERY.md
-!/docs/RELEASE-READINESS.md
 !/docs/INSTALLATION.md
 
 __pycache__/
