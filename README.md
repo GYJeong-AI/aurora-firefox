@@ -36,16 +36,25 @@ bash install.sh
 
 Choose an action, a distribution search scope, one profile and a mode; review the changes and type `APPLY`. Find your profile's absolute path in Firefox's `about:support`. Save your work and close Firefox normally before applying; restart it yourself afterward. Try a separate test profile first, especially if you already use custom CSS.
 
-Explicit commands default to preview. Replace the example path with your own:
+Discovery reads profile names and paths from `profiles.ini` in these registration locations:
+
+- Native: `~/.mozilla/firefox`
+- Snap: `~/snap/firefox/common/.mozilla/firefox`
+- Flatpak: `~/.var/app/org.mozilla.firefox/.mozilla/firefox`
+
+Choose one distribution or all locations. Discovery does not select the default profile or create a new one. Symlinked discovery entries and malformed registration paths are rejected; you can enter an existing profile's absolute path manually. Recognition does not establish UI compatibility for every package. Cancellation or EOF before `APPLY` leaves files and settings unchanged. The installer never forcibly stops Firefox.
+
+Explicit commands default to preview. If stdin or stdout is not a terminal, specify the action and profile; install/update also require a mode. Quote paths containing spaces and replace the example path with your own:
 
 ```bash
 bash install.sh --list-profiles
+bash install.sh --list-profiles --distribution snap --json
 bash install.sh install --profile "/absolute/path/to/profile" --mode opaque
 bash install.sh install --profile "/absolute/path/to/profile" --mode opaque --apply
 bash install.sh status --profile "/absolute/path/to/profile"
 ```
 
-Installation preserves the original `chrome` directory or link and adds a managed block in `user.js` for `toolkit.legacyUserProfileCustomizations.stylesheets`. A private `prefs.js` recovery snapshot is saved, but that file is not modified. History, cookies, logins and sessions are not copied. Keep profile backups private.
+Installation preserves the original `chrome` directory or link and adds a managed block in `user.js` for `toolkit.legacyUserProfileCustomizations.stylesheets`. A private `prefs.js` recovery snapshot is saved, but that file is not modified. History, cookies, logins and sessions are not copied. Keep profile backups private. See [preserved files and links](docs/RECOVERY.md#preserved-files-and-links) for the backup layout and how existing custom CSS is retained.
 
 ## Update, remove and recover
 
@@ -71,6 +80,8 @@ Firefox may retain the CSS preference in `prefs.js` after removal. If needed, re
 bash install.sh update --profile "/absolute/path/to/profile" --mode glass --apply
 ```
 
+`--mode alpha` remains available as the legacy transparency mode; it does not guarantee desktop blur.
+
 Glass makes the tab and navigation surfaces translucent while keeping web content opaque. CSS alone does not blur the desktop. The optional GNOME helper accepts new applications only on **GNOME 46, Wayland, and an already active Blur my Shell 72**. It needs the existing GNOME command-line tools, a private backup and directly verified Firefox window classes. It keeps whole-window opacity at 255 and refuses to replace a blur scope containing other apps. See [blur setup and restoration](docs/BLUR.md).
 
 Renderer alpha and UI behavior were checked; actual spatial desktop blur, compositor popup/maximize artifacts and controlled GPU/frame-time costs remain unverified. Glass and the GNOME helper are experimental. Return to `--mode opaque` and separately restore your compositor backup if problems occur.
@@ -95,9 +106,9 @@ python3 tools/build.py --source
 python3 tools/build.py
 ```
 
-The suite contains 80 tests. The builder exports an uncompressed public source tree or a deterministic ZIP from an explicit allowlist. It refuses to overwrite an edited source export. Update `PUBLIC_FILES` and `.gitignore` together when adding a public file.
+The suite contains 81 tests across four component files, including checks that both READMEs' images are exported. The builder exports an uncompressed public source tree or a deterministic ZIP from an explicit allowlist. It refuses to overwrite an edited source export. Update `PUBLIC_FILES` and `.gitignore` together when adding a public file.
 
-Issues and pull requests are welcome. Include Firefox/package version, desktop/compositor, theme mode, relevant steps and a redacted error. Do not attach profiles, backups, browsing data or private logs. Keep changes small and run the tests. [Installation details](docs/INSTALLATION.md) · [Engineering checks](docs/VALIDATION.md#installer-safeguards).
+Issues and pull requests are welcome. Include Firefox/package version, desktop/compositor, theme mode, relevant steps and a redacted error. Do not attach profiles, backups, browsing data or private logs. Keep changes small and run the tests. [Engineering checks](docs/VALIDATION.md#installer-safeguards).
 
 ## License
 

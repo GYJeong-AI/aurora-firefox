@@ -36,16 +36,25 @@ bash install.sh
 
 작업 → 배포형태 탐색 범위 → 프로필 하나 → 모드 → 미리보기 → `APPLY` 순서로 진행합니다. 프로필 절대 경로는 Firefox `about:support`에서 확인하세요. 작업을 저장하고 Firefox를 정상 종료한 뒤 적용하고, 이후 직접 다시 실행하세요. 기존 custom CSS가 있으면 별도 테스트 프로필부터 권장합니다.
 
-명시적 명령은 `--apply` 없이 미리보기만 합니다. 예시 경로를 자신의 경로로 바꾸세요.
+프로필 이름과 경로는 다음 등록 위치의 `profiles.ini`에서 읽습니다.
+
+- 일반 설치: `~/.mozilla/firefox`
+- Snap: `~/snap/firefox/common/.mozilla/firefox`
+- Flatpak: `~/.var/app/org.mozilla.firefox/.mozilla/firefox`
+
+배포형태 하나 또는 전체 위치를 선택할 수 있습니다. 기본 프로필을 자동 선택하거나 새 프로필을 만들지 않습니다. 심볼릭 링크로 된 탐색 항목과 잘못된 등록 경로는 제외하며, 기존 프로필의 절대 경로를 직접 입력할 수도 있습니다. 위치를 인식한다고 모든 배포형태의 UI 호환성이 확인된 것은 아닙니다. `APPLY` 전 취소하거나 입력이 끝나면 파일과 설정은 바뀌지 않습니다. 설치기는 Firefox를 강제 종료하지 않습니다.
+
+명시적 명령은 `--apply` 없이 미리보기만 합니다. 표준 입력이나 출력이 터미널이 아니면 작업과 프로필을 명시해야 하며, 설치·업데이트에는 모드도 필요합니다. 공백이 있는 경로는 따옴표로 감싸고 예시 경로를 자신의 경로로 바꾸세요.
 
 ```bash
 bash install.sh --list-profiles
+bash install.sh --list-profiles --distribution snap --json
 bash install.sh install --profile "/absolute/path/to/profile" --mode opaque
 bash install.sh install --profile "/absolute/path/to/profile" --mode opaque --apply
 bash install.sh status --profile "/absolute/path/to/profile"
 ```
 
-원래 `chrome` 폴더/링크를 보존하고 `user.js`에 CSS 허용 설정 `toolkit.legacyUserProfileCustomizations.stylesheets`의 관리 블록을 추가합니다. `prefs.js`는 개인 복구 스냅샷만 저장하고 수정하지 않습니다. 방문기록·쿠키·로그인·세션은 복사하지 않습니다. 프로필 백업은 공개하지 마세요.
+원래 `chrome` 폴더/링크를 보존하고 `user.js`에 CSS 허용 설정 `toolkit.legacyUserProfileCustomizations.stylesheets`의 관리 블록을 추가합니다. `prefs.js`는 개인 복구 스냅샷만 저장하고 수정하지 않습니다. 방문기록·쿠키·로그인·세션은 복사하지 않습니다. 프로필 백업은 공개하지 마세요. 백업 위치와 기존 custom CSS 보존 방식은 [보존되는 파일과 링크](docs/RECOVERY.md#preserved-files-and-links)를 보세요.
 
 ## 업데이트·제거·복구
 
@@ -71,6 +80,8 @@ bash install.sh uninstall --profile "/absolute/path/to/profile" --apply
 bash install.sh update --profile "/absolute/path/to/profile" --mode glass --apply
 ```
 
+`--mode alpha`는 이전 반투명 모드로 계속 사용할 수 있으며, 실제 데스크톱 블러를 보장하지 않습니다.
+
 탭·주소줄 표면에 반투명을 적용하고 웹 콘텐츠는 불투명하게 유지합니다. CSS만으로 실제 데스크톱 블러가 생기지는 않습니다. 선택형 GNOME 도구의 새 적용은 **GNOME 46 · Wayland · 이미 ACTIVE인 Blur my Shell 72**로 제한합니다. 기존 GNOME 명령 도구, 개인 백업, 직접 확인한 Firefox window class가 필요합니다. 전체 창 opacity는 255이며 다른 앱을 포함한 기존 블러 범위는 덮어쓰지 않습니다. [블러 설정·원복](docs/BLUR.md)을 보세요.
 
 렌더러 alpha와 UI 동작은 확인했지만 실제 배경 윤곽의 공간적 퍼짐, compositor 팝업/최대화 문제, 통제된 GPU/프레임 비용은 미검증입니다. 유리와 GNOME 도구는 실험 기능입니다. 문제가 있으면 `--mode opaque`로 업데이트하고 compositor 백업을 별도로 복원하세요.
@@ -95,9 +106,9 @@ python3 tools/build.py --source
 python3 tools/build.py
 ```
 
-테스트는 80개입니다. 빌더는 명시적 공개 목록으로 비압축 소스나 재현 가능한 ZIP을 만듭니다. 편집된 소스 export는 덮어쓰지 않습니다. 공개 파일 추가 시 `PUBLIC_FILES`와 `.gitignore`를 함께 갱신하세요.
+테스트는 구성요소별 파일 4개에 81개이며, 두 README의 이미지가 배포본에 포함되는지도 검사합니다. 빌더는 명시적 공개 목록으로 비압축 소스나 재현 가능한 ZIP을 만듭니다. 편집된 소스 export는 덮어쓰지 않습니다. 공개 파일 추가 시 `PUBLIC_FILES`와 `.gitignore`를 함께 갱신하세요.
 
-이슈·PR을 환영합니다. Firefox/배포형태·데스크톱/compositor·테마 모드·재현 순서·개인정보를 지운 오류를 포함하세요. 프로필·백업·방문 데이터·개인 로그는 첨부하지 마세요. 작은 변경과 테스트를 권장합니다. [설치 상세](docs/INSTALLATION.md) · [기술 검사](docs/VALIDATION.md#installer-safeguards). 상세 문서는 현재 영어입니다.
+이슈·PR을 환영합니다. Firefox/배포형태·데스크톱/compositor·테마 모드·재현 순서·개인정보를 지운 오류를 포함하세요. 프로필·백업·방문 데이터·개인 로그는 첨부하지 마세요. 작은 변경과 테스트를 권장합니다. [기술 검사](docs/VALIDATION.md#installer-safeguards). 상세 문서는 현재 영어입니다.
 
 ## 라이선스
 
