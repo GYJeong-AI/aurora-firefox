@@ -2,6 +2,14 @@
 
 Normally preview `uninstall` and then add `--apply`. Managed-file edits, added files or changed links stop automatic replacement/removal. Preserve edits before resolving them. Never replace current `prefs.js` with an old recovery snapshot.
 
+## Preserved files and links
+
+The original `chrome` directory or absolute link is retained in `.aurora-firefox/original-chrome`. For a relative link, `original-chrome-link` retains the original link text and an absolute alias permits access to original files. The original userChrome stylesheet is imported before Aurora; other original files are linked. Existing custom CSS can conflict, so test separately first.
+
+The installer backs up `user.js` and adds one managed CSS-enabling preference block. `prefs.js` is saved as a private recovery snapshot, never edited. History, cookies, logins and sessions are not copied. Backups may contain personal settings: never publish them.
+
+Updates stage a complete theme before replacement, preserve the previous theme and manifest, and keep the initial backup. Managed-file changes, added files or unexpected links stop destructive operations.
+
 ## Automatic handling and limits
 
 A per-profile `.aurora-firefox.lock` serializes Aurora operations. It remains as an empty file; existence does not mean a command is still running. Do not delete it during operations: another inode could permit concurrent locks. Kernel locks are released when the process exits.

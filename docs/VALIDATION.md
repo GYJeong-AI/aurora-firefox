@@ -1,4 +1,4 @@
-# Validation scope — 2026-10-03
+# Validation scope — 2026-10-07
 
 ## Release status
 
@@ -20,13 +20,13 @@ Prior checks covered 15 renderer UI scenarios plus native inactive-window and cl
 | 125/150/200% | Simulated UI scale and hit-testing checked; physical mixed-monitor DPI untested |
 | Glass renderer | Empty tab/navigation pixels alpha 163/255 and 194/255; content 255/255; text unfiltered |
 
-The public preview is an unchanged image of a blank opaque-mode QA window. The striped address bar is Firefox's remote-control indicator, not part of Aurora.
+The two public previews are user-provided light and dark screenshots, cropped to the tab and address bars. They illustrate the theme and do not extend the validation scope above.
 
 ## Installer and package checks
 
-The 80-test suite uses temporary profiles/processes and mocked GNOME settings. It covers preservation of original directories and absolute/relative links, update/removal, later user edits, malformed manifests, symlink guards, operation locks, staging failures, interruptions, rollback and readback failures. Guided discovery/selection, Unicode/spaced paths, cancellation, non-TTY preview/apply and partial blur failures are included.
+The 81-test suite uses temporary profiles/processes and mocked GNOME settings. It covers preservation of original directories and absolute/relative links, update/removal, later user edits, malformed manifests, symlink guards, operation locks, staging failures, interruptions, rollback and readback failures. Guided discovery/selection, Unicode/spaced paths, cancellation, non-TTY preview/apply and partial blur failures are included.
 
-Package tests enforce the explicit public manifest, Git ignore allowlist, deterministic ZIP and source-export edit protection. The manifest excludes local profiles, private backups, QA automation and internal logs. Bash syntax is checked separately. ShellCheck was unavailable and was not installed. Test counts and package checks do not establish compositor or browser compatibility beyond the stated UI scope.
+Package tests enforce the explicit public manifest, Git ignore allowlist, deterministic ZIP, source-export edit protection and inclusion of the images referenced by both READMEs. The manifest excludes local profiles, private backups, QA automation and internal logs. Bash syntax is checked separately. ShellCheck was unavailable and was not installed. Test counts and package checks do not establish compositor or browser compatibility beyond the stated UI scope.
 
 ## Installer safeguards
 
@@ -60,4 +60,4 @@ Use a blank test window in front of a high-contrast background. Fix position, si
 5. Check your actual monitors/scaling and click targets.
 6. Compare with native Firefox if something breaks. Use [removal/recovery](RECOVERY.md) rather than relying on a browser downgrade.
 
-[Installation](INSTALLATION.md) · [Blur](BLUR.md) · [Recovery](RECOVERY.md)
+[Installation](../README.md#quick-start) · [Blur](BLUR.md) · [Recovery](RECOVERY.md)
