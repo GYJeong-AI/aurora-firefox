@@ -1,4 +1,5 @@
-import importlib.util,pathlib,shutil,tempfile,unittest,zipfile,hashlib,uuid,subprocess
+import importlib.util,pathlib,shutil,tempfile,unittest,zipfile,hashlib,uuid,subprocess,re
+from urllib.parse import unquote, urlsplit
 root=pathlib.Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('release_build',root/'tools/build.py');b=importlib.util.module_from_spec(spec);spec.loader.exec_module(b)
 class ReleaseTests(unittest.TestCase):
@@ -40,4 +41,25 @@ class ReleaseTests(unittest.TestCase):
    with self.assertRaises(ValueError):b.build(p)
    with self.assertRaises(ValueError):b.export_source(p)
    self.assertEqual(list(outside.iterdir()),[])
+ def test_readme_images_are_exported_in_zip_and_source(self):
+  images=set()
+  for readme in ('README.md','README.ko.md'):
+   text=(root/readme).read_text()
+   targets=re.findall(r'!\[[^\]]*\]\(([^)\s]+)\)',text)
+   targets+=re.findall(r'<img\b[^>]*\bsrc=["\']([^"\']+)["\']',text,re.IGNORECASE)
+   self.assertTrue(targets,readme)
+   for target in targets:
+    url=urlsplit(target)
+    if not url.scheme and not url.netloc:
+     name=(pathlib.PurePosixPath(readme).parent/unquote(url.path)).as_posix()
+     self.assertIn(name,b.PUBLIC_FILES,readme+' image missing from release: '+name)
+     images.add(name)
+  self.assertTrue(images)
+  with tempfile.TemporaryDirectory() as d:
+   p=pathlib.Path(d);self.copied_source(p)
+   archive=b.build(p);export=pathlib.Path(b.export_source(p)['path'])
+   with zipfile.ZipFile(archive['path']) as z:
+    for name in images:
+     self.assertEqual(z.read('aurora-firefox/'+name),(root/name).read_bytes())
+     self.assertEqual((export/name).read_bytes(),(root/name).read_bytes())
 if __name__=='__main__':unittest.main()

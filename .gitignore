@@ -5,6 +5,7 @@
 !/docs/images/
 /docs/images/*
 !/docs/images/preview-light.png
+!/docs/images/preview-dark.png
 !/docs/images/language-en-active.svg
 !/docs/images/language-en-idle.svg
 !/docs/images/language-ko-active.svg
@@ -42,14 +43,11 @@
 !/tools/setup.py
 !/tests/test_install.py
 !/tests/test_glass.py
-!/tests/test_audit.py
 !/tests/test_release.py
-!/tests/test_hardening.py
 !/tests/test_setup.py
 !/docs/BLUR.md
 !/docs/VALIDATION.md
 !/docs/RECOVERY.md
-!/docs/INSTALLATION.md
 
 __pycache__/
 *.pyc

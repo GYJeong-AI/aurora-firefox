@@ -10,9 +10,9 @@ PUBLIC_FILES=(
  'theme/modules/transparency.css','theme/modules/glass.css',
  'theme/icons/minimize.svg','theme/icons/maximize.svg','theme/icons/restore.svg','theme/icons/close.svg',
  'tools/install.py','tools/gnome_glass.py','tools/build.py','tools/safety.py','tools/setup.py',
- 'tests/test_install.py','tests/test_glass.py','tests/test_audit.py','tests/test_release.py','tests/test_hardening.py','tests/test_setup.py',
+ 'tests/test_install.py','tests/test_glass.py','tests/test_release.py','tests/test_setup.py',
  'docs/images/language-en-active.svg','docs/images/language-en-idle.svg','docs/images/language-ko-active.svg','docs/images/language-ko-idle.svg',
- 'docs/images/preview-light.png','docs/BLUR.md','docs/VALIDATION.md','docs/RECOVERY.md','docs/INSTALLATION.md',
+ 'docs/images/preview-light.png','docs/images/preview-dark.png','docs/BLUR.md','docs/VALIDATION.md','docs/RECOVERY.md',
 )
 def public_inputs(root):
  root=pathlib.Path(root)
